@@ -24,38 +24,39 @@ $(document).ready(function(){
     readonly = true;
   }
   let templates = [
-    // { title: '下拉选择', description: 'select', url: './templates/select.html'},
-    // { title: '标签', description: 'label', url: './templates/label.html'},
-    // { title: '文档段', description: '文档段', url: './templates/document.html'},
-    // { title: '单选框', description: '单选框', url: './templates/radio.html'},
-    // { title: '复选框', description: '复选框', url: './templates/checkbox.html'},
-    {
-      title: '下拉选择',
-      description: '下拉控件',
-      content: '<select>{$select}</select>'
-    },
-    {
-      title: '标签',
-      description: '标签控件',
-      content: '<div style="display:flex"><label>{$label}</label><input value="{$username}" /></div>'
-    },
-    {
-      title: '文档段',
-      description: '文档段',
-      content: '<textarea class="mceTmpl-control-text" style="width: 100%" type="text">{$document}</textarea>'
-    },
-    {
-      title: '单选框',
-      description: '单选框',
-      content: '<div style="display:flex"><label><input type="radio" name="{$radioName}" />{$radioText1}</label><label><input type="radio" name="{$radioName}" />{$radioText2}</label></div>'
-    },
-    {
-      title: '复选框',
-      description: '复选框',
-      content: '<div style="display:flex"><label><input type="checkbox" name="{$checkName}" />{$checkText1}</label><label><input type="checkbox" name="{$checkName}" />{$checkText2}</label></div>'
-    },
+    { title: '复选框', description: '复选框', url: './templates/checkbox.html'},
+    { title: '下拉选择', description: 'select', url: './templates/select.html'},
+    { title: '标签', description: 'label', url: './templates/label.html'},
+    { title: '文档段', description: '文档段', url: './templates/document.html'},
+    { title: '单选框', description: '单选框', url: './templates/radio.html'},
+    // {
+    //   title: '下拉选择',
+    //   description: '下拉控件',
+    //   content: '<select>{$select}</select>'
+    // },
+    // {
+    //   title: '标签',
+    //   description: '标签控件',
+    //   content: '<div style="display:flex"><label>{$label}</label><input value="{$username}" /></div>'
+    // },
+    // {
+    //   title: '文档段',
+    //   description: '文档段',
+    //   content: '<textarea class="mceTmpl-control-text" style="width: 100%" type="text">{$document}</textarea>'
+    // },
+    // {
+    //   title: '单选框',
+    //   description: '单选框',
+    //   content: '<div style="display:flex"><label><input type="radio" name="{$radioName}" />{$radioText1}</label><label><input type="radio" name="{$radioName}" />{$radioText2}</label></div>'
+    // },
+    // {
+    //   title: '复选框',
+    //   description: '复选框',
+    //   content: '<div style="display:flex"><label><input type="checkbox" name="{$checkName}" />{$checkText1}</label><label><input type="checkbox" name="{$checkName}" />{$checkText2}</label></div>'
+    // },
   ]
   tinymce.init({
+    document_base_url: './',
     apiKey: 'wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo',
     selector: 'textarea#open-source-plugins',
     language: 'zh_CN',
@@ -182,6 +183,4 @@ $(document).ready(function(){
     console.log('val', val);
     tinyMCE.activeEditor.setContent(val);
   });
-  console.log('tinymce', tinymce)
-  console.log('tinyMCE', tinyMCE)
 })
