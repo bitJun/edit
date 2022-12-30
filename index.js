@@ -24,36 +24,12 @@ $(document).ready(function(){
     readonly = true;
   }
   let templates = [
-    { title: '复选框', description: '复选框', url: './templates/checkbox.html'},
-    { title: '下拉选择', description: 'select', url: './templates/select.html'},
-    { title: '标签', description: 'label', url: './templates/label.html'},
-    { title: '文档段', description: '文档段', url: './templates/document.html'},
-    { title: '单选框', description: '单选框', url: './templates/radio.html'},
-    // {
-    //   title: '下拉选择',
-    //   description: '下拉控件',
-    //   content: '<select>{$select}</select>'
-    // },
-    // {
-    //   title: '标签',
-    //   description: '标签控件',
-    //   content: '<div style="display:flex"><label>{$label}</label><input value="{$username}" /></div>'
-    // },
-    // {
-    //   title: '文档段',
-    //   description: '文档段',
-    //   content: '<textarea class="mceTmpl-control-text" style="width: 100%" type="text">{$document}</textarea>'
-    // },
-    // {
-    //   title: '单选框',
-    //   description: '单选框',
-    //   content: '<div style="display:flex"><label><input type="radio" name="{$radioName}" />{$radioText1}</label><label><input type="radio" name="{$radioName}" />{$radioText2}</label></div>'
-    // },
-    // {
-    //   title: '复选框',
-    //   description: '复选框',
-    //   content: '<div style="display:flex"><label><input type="checkbox" name="{$checkName}" />{$checkText1}</label><label><input type="checkbox" name="{$checkName}" />{$checkText2}</label></div>'
-    // },
+    { title: '复选框控件', description: '复选框控件', url: './templates/checkbox.html'},
+    { title: '下拉选择控件', description: '下拉选择控件', url: './templates/select.html'},
+    { title: '标签控件', description: '标签控件', url: './templates/label.html'},
+    { title: '文档段控件', description: '文档段控件', url: './templates/document.html'},
+    { title: '单行文本控件', description: '单行文本控件', url: './templates/input.html'},
+    { title: '单选框控件', description: '单选框控件', url: './templates/radio.html'},
   ]
   tinymce.init({
     document_base_url: './',
@@ -171,6 +147,7 @@ $(document).ready(function(){
       xhr.send(formData);
     }
   });
+  console.log('tinyMCE.activeEditor', tinyMCE.activeEditor)
   $('.footer_save').click(function(){
     let content = tinyMCE.activeEditor.getContent();
     alert(`content:: ${content}`)

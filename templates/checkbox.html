@@ -3,7 +3,7 @@
   <div class="layui-container">  
     <div class="layui-row" style="margin-bottom: 20px;">
       <div class="layui-col-md6">
-        <div class="">控件ID</div>
+        <div class="title">控件ID</div>
         <input
           id="controlId"
           type="text"
@@ -13,7 +13,7 @@
         >
       </div>
       <div class="layui-col-md6">
-        <div class="">描述</div>
+        <div class="title">描述</div>
         <input
           id="controlDesc"
           type="text"
@@ -67,16 +67,29 @@
 <script>
   let data = [];
   $(document).ready(function(){
-    window.parent.document.getElementsByClassName('tox-dialog__footer')[0].setAttribute('style', 'display: none');
     $('#add').click(function(){
       let key = $('#key').val();
       let value = $('#value').val();
-      let html = `<div>${key}  ${value}</div>`;
       data.push({
         key: key,
         value: value,
       });
-      $('.layui-show').append(html);
+      let html = ``;
+      data.forEach((item, index)=>{
+        html += `<div>${item.key}  ${item.value} <img style="cursor: pointer;" data-index="${index}" src="./images/delete.png" class="control-item" /></div>`;
+      });
+      $('#key').val('');
+      $('#value').val('');
+      $('.layui-show').html(html);
+    });
+    $('body').on('click', '.control-item', function() {
+      let index = $(this).data('index');
+      data.splice(index, 1);
+      let html = ``;
+      data.forEach((item, index)=>{
+        html += `<div>${item.key}  ${item.value} <img style="cursor: pointer;" data-index="${index}" src="./images/delete.png" class="control-item" /></div>`;
+      });
+      $('.layui-show').html(html);
     });
     $('#sure').click(function(){
       let id = $('#controlId').val();
@@ -87,7 +100,11 @@
         str+=`<div><input type="checkbox" name="${id}" data-value="${item.key}" />${item.value}</div>`;
       })
       str += `</div>`;
-      window.parent.tinyMCE.activeEditor.setContent(str);
+      if (!id) {
+        alert('控件ID必填')
+        return;
+      }
+      window.parent.tinyMCE.activeEditor.insertContent(str);
       window.parent.document.getElementsByClassName('tox-dialog-wrap')[0].remove();
       window.parent.document.getElementsByClassName('tox-dialog')[0].remove();
     });
@@ -95,8 +112,16 @@
       window.parent.document.getElementsByClassName('tox-dialog-wrap')[0].remove();
       window.parent.document.getElementsByClassName('tox-dialog')[0].remove();
     });
-  })
-  // document.getElementById("ddd").addEventListener("click", function(){
-  //   window.parent.tinyMCE.activeEditor.setContent('草泥马测试');
-  // });
+  });
 </script>
+<style>
+  .title {
+    height: 40px;
+    line-height: 40px;
+    background: #f9f9f9;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-indent: 20px;
+  }
+</style>

@@ -26,13 +26,13 @@
     <div class="layui-row" style="margin-bottom: 20px;">
       <div class="layui-col-md6">
         <div class="title">控件内容</div>
-        <textarea
+        <input
           id="content"
           type="text"
           placeholder=""
           autocomplete="off"
           class="layui-input"
-        ></textarea>
+        >
       </div>
     </div>
   </div>
@@ -68,7 +68,8 @@
       let desc = $('#controlDesc').val();
       let content = $('#content').val();
       let str = ``;
-      str += `<div style="display:flex" id="${id}"><label>${desc}</label><textarea style="margin:0">${content}</textarea></div>`;
+      str += `<div style="display:flex" id="${id}"><label>${desc}</label>
+        <input style="margin:0" value="${content}"/></div>`;
       if (!id) {
         alert('控件ID必填')
         return;
