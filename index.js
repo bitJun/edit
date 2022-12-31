@@ -33,10 +33,13 @@ $(document).ready(function(){
   ]
   tinymce.init({
     document_base_url: './',
-    apiKey: 'wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo',
-    selector: 'textarea#open-source-plugins',
-    language: 'zh_CN',
     plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+    content_css : '/css/modules/layer/default/layer.css',
+    importcss_file_filter: '/css/modules/layer/default/layer.css',
+    importcss_append: true,
+    apiKey: 'wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo',
+    selector: '#textarea',
+    language: 'zh_CN',
     editimage_cors_hosts: ['picsum.photos'],
     menu: menus,
     toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link codesample',
