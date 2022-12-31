@@ -96,11 +96,13 @@
       let id = $('#controlId').val();
       let desc = $('#controlDesc').val();
       let str = ``;
-      str += `<div style="display:flex;height: 30px;align-items:center;"><label>${desc}</label><select style="width: 80px;height: 30px;border-radius=15px" id="${id}" name="${id}">`;
+      str += `<div style="display:flex;height: 30px;align-items:center;">`;
+      str += `<label style="color: blue">[</label>`;
+      str += `<select style="width: 80px;height: 30px;border-radius=15px" id="${id}" name="${id}">`
       data.forEach(item=>{
         str+=`<option value="${item.key}">${item.value}</option>`;
       });
-      str += `</select></div>`;
+      str += `</select><label style="color: blue">]</label><label style="color: red">.</label></div>`;
       if (!id) {
         alert('控件ID必填')
         return;

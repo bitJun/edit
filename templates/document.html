@@ -68,7 +68,12 @@
       let desc = $('#controlDesc').val();
       let content = $('#content').val();
       let str = ``;
-      str += `<div style="display:flex" id="${id}"><label>${desc}</label><textarea style="margin:0">${content}</textarea></div>`;
+      str += `<div style="display:flex; align-items: center;" id="${id}">
+        <label style="color: blue">[</label>
+        <textarea style="margin:0">${content}</textarea>
+        <label style="color: blue">]</label>
+        <label style="color: red">.</label>
+      </div>`;
       if (!id) {
         alert('控件ID必填')
         return;

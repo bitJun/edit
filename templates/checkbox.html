@@ -95,11 +95,11 @@
       let id = $('#controlId').val();
       let desc = $('#controlDesc').val();
       let str = ``;
-      str += `<div style="display:flex" id="${id}"><label>${desc}</label>`;
+      str += `<div style="display:flex; align-items: center;" id="${id}"><label style="color: blue">[</label>`;
       data.forEach(item=>{
         str+=`<div><input type="checkbox" name="${id}" data-value="${item.key}" />${item.value}</div>`;
       })
-      str += `</div>`;
+      str += `<label style="color: blue">]</label><label style="color: red">.</label></div>`;
       if (!id) {
         alert('控件ID必填')
         return;

@@ -33,10 +33,12 @@ $(document).ready(function(){
   ]
   tinymce.init({
     document_base_url: './',
+    entity_encoding: 'raw',
+    force_br_newlines : true,
+    force_p_newlines : false,
+    forced_root_block : false, 
+    content_css: 'writer',
     plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-    content_css : '/css/modules/layer/default/layer.css',
-    importcss_file_filter: '/css/modules/layer/default/layer.css',
-    importcss_append: true,
     apiKey: 'wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo',
     selector: '#textarea',
     language: 'zh_CN',
@@ -65,6 +67,7 @@ $(document).ready(function(){
       { title: 'Some class', value: 'class-name' }
     ],
     importcss_append: true,
+    forced_root_block: '',
     file_picker_callback: (callback, value, meta) => {
       if (meta.filetype === 'file') {
         callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
