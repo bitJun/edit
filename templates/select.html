@@ -98,7 +98,7 @@
       let str = ``;
       str += `<div style="display:flex;height: 30px;align-items:center;">`;
       str += `<label style="color: blue">[</label>`;
-      str += `<select style="width: 80px;height: 30px;border-radius=15px" id="${id}" name="${id}">`
+      str += `<select style="width: 80px;height: 30px;border-radius=15px;border: 0;-webkit-appearance: none;-moz-appearance: none;appearance: none;" id="${id}" name="${id}">`
       data.forEach(item=>{
         str+=`<option value="${item.key}">${item.value}</option>`;
       });
