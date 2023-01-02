@@ -34,6 +34,7 @@ $(document).ready(function(){
   tinymce.init({
     document_base_url: './',
     entity_encoding: 'raw',
+    height: '100vh',
     auto_focus : true,
     force_br_newlines : true,
     // force_p_newlines : false,
@@ -104,7 +105,6 @@ $(document).ready(function(){
       checkText1: '男',
       checkText2: '女',
     },
-    height: 600,
     image_caption: true,
     quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
     noneditable_class: 'mceNonEditable',
@@ -116,8 +116,6 @@ $(document).ready(function(){
     branding: false,
     font_formats: '微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif',
     fontsize_formats: '11px 12px 14px 16px 18px 24px 36px 48px',
-    // quickbars_insert_toolbar: 'quickimage quicktable',
-    // quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
     images_upload_url: '/demo/upimg.php',
     images_upload_base_path: '/demo',
     images_upload_handler: function (blobInfo, success, failure, progress) {
@@ -153,17 +151,23 @@ $(document).ready(function(){
       xhr.send(formData);
     }
   });
-  console.log('tinyMCE.activeEditor', tinyMCE.activeEditor)
+  /**
+   * 获取富文本内容
+   */
   $('.footer_save').click(function(){
     let content = tinyMCE.activeEditor.getContent();
-    alert(`content:: ${content}`)
   });
+  /**
+   * 富文本重重置
+   */
   $('.footer_reset').click(function(){
     tinyMCE.activeEditor.setContent('');
   });
+  /**
+   * 设置富文本内容
+   */
   $('.footer_set').click(function() {
     let val = $('.footer_value').val();
-    console.log('val', val);
     tinyMCE.activeEditor.setContent(val);
   });
 })
