@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="./layui.css" />
-  <link rel="stylesheet" href="./index.css" />
-  <style>
-    .tox-editor-header {
-      top: 0 !important;
-    }
-    .tox-dialog__footer {
-      display: none !important;
-    }
-  </style>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>病历</title>
+    <script type="text/javascript" charset="utf-8" src="./js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/sde.config.js"></script>
+    <link rel="stylesheet" href="./js/ueditor/themes/default/css/ueditor.css">
+    <script>
+      function drag(evt) {
+        evt.dataTransfer.setData("Text", evt.target.innerHTML);
+      }
+    </script>
+    <script type="text/javascript" src="./js/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="./js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="./js/sde-ie8-design.js"></script>
+  </head>
+
   <body>
-    <div class="contianer">
-      <textarea id="textarea">
-        <div style="display: flex; align-items: center;"></div>
-      </textarea>
-      <!-- <div class="footer">
-        <input class="footer_value"/>
-        <div class="footer_set">设置内容</div>
-        <div class="footer_save">获取内容</div>
-        <div class="footer_reset">重置</div>
-      </div> -->
+    <div style="width:100vw;box-shadow: 0 0 0 1px #d1d1d1, 0 0 3px 1px #ccc;;height:100vh;" id='sde'>
     </div>
+    <script type="text/javascript" charset="utf-8" src="./js/index.js"></script>
   </body>
-  <script src="./jquery.js"></script>
-  <script src="./layui.js"></script>
-  <!-- <script src="./tinymce.min.js?apiKey=wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo"></script> -->
-  <script src="https://cdn.tiny.cloud/1/wdz0zcafealz93eqmn33zx73ufiibam0kafxoasgewr2g8fo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-  <script src="./langs/zh_CN.js"></script>
-  <script src="./index.js"></script>
+
 </html>
